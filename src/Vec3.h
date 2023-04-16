@@ -89,19 +89,6 @@ class Vec3 {
         const float length() {
             return std::sqrt(length_squared());
         }
-        const float dot(const Vec3 &v1, const Vec3 &v2) {
-            return (v1.x * v2.x) + (v1.y * v2.y) + (v1.z * v2.z);
-        }
-        const Vec3 cross(const Vec3 &v1, const Vec3 &v2) {
-            return Vec3(
-                (v1.y * v2.z) - (v1.z * v2.y),
-                (v1.z * v2.x) - (v1.x * v2.z),
-                (v1.x * v2.y) - (v1.y * v2.x)
-            );
-        }
-        const Vec3 unit_vector(Vec3 v) {
-            return v / v.length();
-        }
 };
 
 // Type aliases
