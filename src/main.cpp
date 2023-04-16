@@ -12,10 +12,9 @@ int main() {
     // Constants
     // const int image_height = 144; // 402KB PPM
     // const int image_height = 360; // 2.5MB PPM
-    const int image_height = 480; // 4.4MB PPM
     // const int image_height = 720; // 9.8MB PPM
     // const int image_height = 1080; // 23MB PPM
-    // const int image_height = 2160; // 89MB PPM
+    const int image_height = 2160; // 89MB PPM
     const int image_width = (int)( image_height * 16 / 9 );
     const std::string output_path = "images/out.ppm";
     
