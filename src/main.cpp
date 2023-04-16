@@ -4,6 +4,7 @@
 
 #include "common.h"
 #include "Vec3.h"
+#include "Colour.h"
 
 
 int main() {
