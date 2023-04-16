@@ -11,12 +11,12 @@ int map_float_to_rgb_int(float rgb_val) {
 int main() {
 
     // Constants
-    // const int image_height = 144; // 402KB PPM
+    const int image_height = 144; // 402KB PPM
     // const int image_height = 360; // 2.5MB PPM
     // const int image_height = 480; // 4.4MB PPM
     // const int image_height = 720; // 9.8MB PPM
     // const int image_height = 1080; // 23MB
-    const int image_height = 2160; // 89MB
+    // const int image_height = 2160; // 89MB
     const int image_width = (int)( image_height * 16 / 9 );
     const std::string output_path = "images/out.ppm";
     
@@ -29,14 +29,15 @@ int main() {
 
 
     // Main logic
-    for (int j = image_height-1; j >= 0; --j) { // Loop (height-1 --> 0)
-        std::cout << "\rINFO: Rows remaining: " << j << std::flush;
-        for (int i = 0; i < image_width; ++i) { // Loop (0 --> width)
+    for (int row = image_height-1; row >= 0; --row) { // (height --> 0)
+        std::cout << "\rINFO: Rows remaining: " << row << std::flush;
+
+        for (int col = 0; col < image_width; ++col) {
 
             // TODO: Comment these operations
-            auto r = double(i) / (image_width-1);
-            auto g = double(j) / (image_height-1);
-            auto b = 0.25;
+            float r = float(col) / (image_width-1); // Red increases left to right (0 --> 1)
+            float g = float(row) / (image_height-1); // Green increases top to right (0 --> 1)
+            float b = 0.6; // Blue is constant
 
             int ir = map_float_to_rgb_int(r);
             int ig = map_float_to_rgb_int(g);
@@ -44,6 +45,7 @@ int main() {
 
             output_ppm << ir << "\t" << ig << "\t" << ib << "\t\t";
         }
+        
         output_ppm << "\n";
     }
     std::cout << "\n";

@@ -5,12 +5,13 @@
 
 
 BINARY_FILE="./a.out"
+# BINARY_FILE="./bin/a.out"
 PPM_FILE="./images/out.ppm"
 PNG_FILE="./images/out.png"
 
 
 echo -e "\n==> Compiling binary"
-g++ main.cpp -o $BINARY_FILE
+g++ ./src/main.cpp -o $BINARY_FILE
 
 
 if [[ -f $BINARY_FILE ]]; then
