@@ -18,14 +18,12 @@ class Colour: public Vec3 {
 
         // Misc. functions
         /* Write colour values of given colour (vec3), mapped to RGB values (0 --> 255) */
-        void write_colour(std::ostream &out, Colour c) {
-            out << map_float_to_rgb_int(c.x()) << " "
-                << map_float_to_rgb_int(c.y()) << " "
-                << map_float_to_rgb_int(c.z()) << "\n";
+        void write_colour(std::ostream &out) {
+            // NOTE: Tabs are worth it for ~9% larger PPM files
+            out << map_float_to_rgb_int(xyz[0]) << "\t"
+                << map_float_to_rgb_int(xyz[1]) << "\t"
+                << map_float_to_rgb_int(xyz[2]) << "\t\t";
         }
-
-
-
 };
 
 

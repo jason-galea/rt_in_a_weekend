@@ -11,7 +11,7 @@ PNG_FILE="./images/out.png"
 
 
 echo -e "\n==> Compiling binary"
-g++ ./src/main.cpp -o $BINARY_FILE
+g++ -O2 ./src/main.cpp -o $BINARY_FILE
 
 
 if [[ -f $BINARY_FILE ]]; then

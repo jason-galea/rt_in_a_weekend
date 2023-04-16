@@ -17,10 +17,10 @@ class Vec3 {
             xyz[2] = z;
         }
 
-        // Getters
-        const float x() { return xyz[0]; }
-        const float y() { return xyz[1]; }
-        const float z() { return xyz[2]; }
+        // // Getters
+        // const float x() { return xyz[0]; }
+        // const float y() { return xyz[1]; }
+        // const float z() { return xyz[2]; }
 
         // // Array access operators
         // float operator[](int i) const { return xyz[i]; } // Return value
@@ -109,7 +109,6 @@ class Vec3 {
 
 // Type aliases
 using Point3 = Vec3;
-// using Colour = Vec3; // Moved to child class
 
 
 #endif
