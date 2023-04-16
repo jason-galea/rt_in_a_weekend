@@ -1,7 +1,7 @@
 #!/bin/bash
 
-echo -e "\n==> Searching for '*.cpp' and '*.h' files"
-CPP_FILES=$(find $PWD -type f \( -name "*.cpp" -o -name "*.h" \) | sort)
+echo -e "\n==> Searching for '*.cpp' and '*.h' files in '$PWD'"
+CPP_FILES=$(find . -type f \( -name "*.cpp" -o -name "*.h" \) | sort)
 
 echo -e "\n==> Linecount for individual files:"
 echo $CPP_FILES | xargs -n1 wc -l
