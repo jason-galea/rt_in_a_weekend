@@ -1,7 +1,7 @@
 #!/bin/bash
 
 # sudo apt update -y
-# sudo apt install build-essential netpbm
+# sudo apt install build-essential g++ gdb netpbm
 
 
 BINARY_FILE="./a.out"
