@@ -7,7 +7,9 @@ echo -e "\n==> Linecount for individual files:"
 echo $CPP_FILES | xargs -n1 wc -l
 
 echo -e "\n==> Linecount for individual files (Excluding blank lines & comments):"
-echo $CPP_FILES | xargs -n1 echo | xargs -I {} sh -c "grep -vE '^$|^\ *\/\/' {} | wc -l"
+for FILE in $CPP_FILES; do
+    echo "$(grep -vE '^$|^\ *\/\/' $FILE | wc -l) $FILE"
+done
 
 echo -e "\n==> Total linecount:"
 echo $CPP_FILES | xargs -n1 cat | wc -l
