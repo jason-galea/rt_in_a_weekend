@@ -12,17 +12,18 @@ int main() {
 
     // Constants
     // const int image_height = 144; // 402KB PPM
-    const int image_height = 360; // ??? PPM
-    // const int image_height = 480; // ??? PPM
-    // const int image_height = 720; // ??? PPM
+    // const int image_height = 360; // 2.5MB PPM
+    // const int image_height = 480; // 4.4MB PPM
+    const int image_height = 720; // 9.8MB PPM
     // const int image_height = 1080; // 23MB
     // const int image_height = 2160; // 89MB
     const int image_width = (int)( image_height * 16 / 9 );
+    const std::string output_path = "images/out.ppm";
+    
     std::cout << "INFO: Image resolution is " << image_width << " by " << image_height << "\n";
 
-    const std::string output_path = "images/out.ppm";
 
-    // Initialise output string
+    // Vars
     std::stringstream output_ppm;
     output_ppm << "P3\n" << image_width << " " << image_height << "\n255\n";
 
@@ -48,6 +49,7 @@ int main() {
 
     // Save PPM
     std::cout << "INFO: Saving PPM data to '" << output_path << "'\n";
+    
     std::ofstream output_file_handler(output_path);
     output_file_handler << output_ppm.str();
     
