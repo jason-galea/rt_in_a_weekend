@@ -15,8 +15,8 @@ int main() {
     // const int image_height = 360; // 2.5MB PPM
     // const int image_height = 480; // 4.4MB PPM
     // const int image_height = 720; // 9.8MB PPM
-    // const int image_height = 1080; // 23MB
-    // const int image_height = 2160; // 89MB
+    // const int image_height = 1080; // 23MB PPM
+    // const int image_height = 2160; // 89MB PPM
     const int image_width = (int)( image_height * 16 / 9 );
     const std::string output_path = "images/out.ppm";
     
@@ -28,7 +28,7 @@ int main() {
     output_ppm << "P3\n" << image_width << " " << image_height << "\n255\n";
 
 
-    // Main logic
+    // "Render loop"
     for (int row = image_height-1; row >= 0; --row) { // (height --> 0)
         std::cout << "\rINFO: Rows remaining: " << row << std::flush;
 
@@ -45,7 +45,7 @@ int main() {
 
             output_ppm << ir << "\t" << ig << "\t" << ib << "\t\t";
         }
-        
+
         output_ppm << "\n";
     }
     std::cout << "\n";
