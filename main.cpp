@@ -11,10 +11,10 @@ int map_float_to_rgb_int(float rgb_val) {
 int main() {
 
     // Constants
-    // const int image_height = 144; // 402KB PPM
+    const int image_height = 144; // 402KB PPM
     // const int image_height = 360; // 2.5MB PPM
     // const int image_height = 480; // 4.4MB PPM
-    const int image_height = 720; // 9.8MB PPM
+    // const int image_height = 720; // 9.8MB PPM
     // const int image_height = 1080; // 23MB
     // const int image_height = 2160; // 89MB
     const int image_width = (int)( image_height * 16 / 9 );
@@ -29,13 +29,13 @@ int main() {
 
 
     // Main logic
-    for (int j = image_height-1; j >= 0; --j) {
-        for (int i = 0; i < image_width; ++i) {
+    for (int j = image_height-1; j >= 0; --j) { // Loop (height-1 --> 0)
+        for (int i = 0; i < image_width; ++i) { // Loop (0 --> width)
 
             // TODO: Comment these operations
-            float r = double(i) / (image_width-1);
-            float g = double(j) / (image_height-1);
-            float b = 0.25;
+            auto r = double(i) / (image_width-1);
+            auto g = double(j) / (image_height-1);
+            auto b = 0.25;
 
             int ir = map_float_to_rgb_int(r);
             int ig = map_float_to_rgb_int(g);
@@ -49,7 +49,7 @@ int main() {
 
     // Save PPM
     std::cout << "INFO: Saving PPM data to '" << output_path << "'\n";
-    
+
     std::ofstream output_file_handler(output_path);
     output_file_handler << output_ppm.str();
     

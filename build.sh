@@ -4,7 +4,7 @@
 # sudo apt install build-essential netpbm
 
 
-BINARY_FILE="./out"
+BINARY_FILE="./a.out"
 PPM_FILE="./images/out.ppm"
 PNG_FILE="./images/out.png"
 
