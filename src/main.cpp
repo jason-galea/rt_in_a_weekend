@@ -1,6 +1,7 @@
 #include <iostream>
 #include <sstream>
 #include <fstream>
+#include <numeric>
 
 #include "common.h"
 #include "Vec3.h"
@@ -10,15 +11,22 @@
 int main() {
 
     // Constants
+    // const int image_height = 3; // ??? PPM
     // const int image_height = 144; // 402KB PPM
     // const int image_height = 360; // 2.5MB PPM
-    // const int image_height = 720; // 9.8MB PPM
+    const int image_height = 720; // 9.8MB PPM
     // const int image_height = 1080; // 23MB PPM
-    const int image_height = 2160; // 89MB PPM
+    // const int image_height = 2160; // 89MB PPM
+    // const int image_height = 4320; // 353MB PPM
+    // const int image_height = 8640; // 1.4GB PPM
+    // const int image_height = 17280; // 5.6GB PPM
     const int image_width = (int)( image_height * 16 / 9 );
+    // const int image_width = 3;
+    const int pixel_count = image_width * image_height;
     const std::string output_path = "images/out.ppm";
     
     std::cout << "INFO: Image resolution is " << image_width << " by " << image_height << "\n";
+    std::cout << "INFO: Pixel count is " << pixel_count << "\n";
 
 
     // Vars
@@ -26,7 +34,7 @@ int main() {
     output_ppm << "P3\n" << image_width << " " << image_height << "\n255\n";
 
 
-    // "Render loop"
+    // "Render loop" (Nested)
     for (int row = image_height-1; row >= 0; --row) { // (height --> 0)
         std::cout << "\rINFO: Rows remaining: " << row << std::flush;
 
@@ -37,11 +45,71 @@ int main() {
                 0.25 // Blue is constant
             );
             pixel_colour.write_colour(output_ppm);
+            // std::cout << "DEBUG: row = " << row << ", col = " << col << "\n";
         }
         output_ppm << "\n";
 
     }
     std::cout << "\n";
+
+    
+    // // "Render loop" (De-nested, iterate up)
+    // for (int i = 0; i < pixel_count; ++i) {
+    // // int pixel_array[pixel_count];
+    // // std::iota(std::begin(pixel_array)+1, std::end(pixel_array), 1);
+
+    // // for (const int i : pixel_array) {
+    //     std::cout << "\rINFO: Total rendered pixels: " << i+1 << std::flush;
+    //     // std::cout.flush();
+
+    //     int row = image_height - (i / image_width) - 1;
+    //     int col = i % image_width;
+    //     int test = image_height - (i / image_width);
+    //     // std::cout << "DEBUG: row = " << row << ", col = " << col << "\n";
+    //     // std::cout << "DEBUG: "
+    //     //     << "i = " << i
+    //     //     << ", test = " << test
+    //     //     << ", row = " << row
+    //     //     << ", col = " << col << "\n";
+
+    //     Colour pixel_colour(
+    //         float(col) / (image_width-1), // Red increases left to right (height --> 0)
+    //         float(row) / (image_height-1), // Green increases top to bottom (0 --> width)
+    //         0.25 // Blue is constant
+    //     );
+    //     pixel_colour.write_colour(output_ppm);
+
+    //     // NOTE: Not required, just looks nicer
+    //     // if (true) {
+    //     //     output_ppm << "\n";
+    //     // }
+
+    // }
+    // std::cout << "\n";
+
+
+    // // "Render loop" (De-nested, iterate down)
+    // for (int i = image_pixels-1; i >= 0; --i) {
+    //     std::cout << "\rINFO: Pixels remaining: " << i << std::flush;
+
+    //     int row = i / image_width;
+    //     int col = image_height - (i % image_width) - 1;
+    //     // std::cout << "DEBUG: row = " << row << ", col = " << col << "\n";
+
+    //     Colour pixel_colour(
+    //         float(col) / (image_width-1), // Red increases left to right (height --> 0)
+    //         float(row) / (image_height-1), // Green increases top to bottom (0 --> width)
+    //         0.25 // Blue is constant
+    //     );
+    //     pixel_colour.write_colour(output_ppm);
+
+    //     // NOTE: Not required, just looks nicer
+    //     // if (true) {
+    //     //     output_ppm << "\n";
+    //     // }
+
+    // }
+    // std::cout << "\n";
 
 
     // Save PPM
