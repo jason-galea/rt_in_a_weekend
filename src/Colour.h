@@ -20,8 +20,10 @@
 //         //     y = y_;
 //         //     z = z_;
 //         // }
-//         Colour() : x(0), y(0), z(0) {} // Default values
-//         Colour(float x_, float y_, float z_) : x(x_), y(y_), z(z_) {}
+//         Colour()
+//             : x(0), y(0), z(0) {} // Default values
+//         Colour(float x_, float y_, float z_)
+//             : x(x_), y(y_), z(z_) {}
 
 //         // Misc. functions
 //         /* Write colour values of given colour (vec3), mapped to RGB values (0 --> 255) */
@@ -39,7 +41,7 @@
 
 // Loose functions relating to Colour
 /* Write colour values of given colour (vec3), mapped to RGB values (0 --> 255) */
-inline void write_colour(std::ostream &out, const Vec3 &v) {
+inline void write_colour(std::ostream &out, const Colour &v) {
     out << map_float_to_rgb_int(v.x) << " "
         << map_float_to_rgb_int(v.y) << " "
         << map_float_to_rgb_int(v.z) << "\n";
