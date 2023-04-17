@@ -1,9 +1,8 @@
 #ifndef COMMON_H
 #define COMMON_H
 
-// #include "Vec3.h"
-// #include "Colour.h"
-// #include "Ray.h"
+
+// NOTE: DON'T INCLUDE ANY CUSTOM HEADERS HERE!
 
 
 // Misc functions

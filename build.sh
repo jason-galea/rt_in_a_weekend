@@ -11,18 +11,18 @@ PNG_FILE="./images/out.png"
 
 
 echo -e "\n==> Compiling"
-time g++ -O2 ./src/main.cpp -o $BINARY_FILE
+g++ -O2 ./src/main.cpp -o $BINARY_FILE
 
 
 if [[ -f $BINARY_FILE ]]; then
     echo -e "\n==> Executing"
-    time $BINARY_FILE
+    $BINARY_FILE
 fi
 
 
 if [[ -f $PPM_FILE ]]; then
     echo -e "\n==> Converting PPM image to PNG"
-    time pnmtopng $PPM_FILE > $PNG_FILE
+    pnmtopng $PPM_FILE > $PNG_FILE
 fi
 
 

@@ -24,41 +24,41 @@ class Vec3 {
         }
 
         // Stream operator
-        friend std::ostream& operator << (std::ostream &out, const Vec3 &v) {
+        friend std::ostream& operator << (std::ostream& out, const Vec3& v) {
             return out << v.x << ' ' << v.y << ' ' << v.z;
         }
 
         // Math operators
-        friend Vec3 operator + (const Vec3 &v1, const Vec3 &v2) {
+        friend Vec3 operator + (const Vec3& v1, const Vec3& v2) {
             return Vec3((v1.x + v2.x), (v1.y + v2.y), (v1.z + v2.z));
         }
-        friend Vec3 operator - (const Vec3 &v1, const Vec3 &v2) {
+        friend Vec3 operator - (const Vec3& v1, const Vec3& v2) {
             return Vec3((v1.x - v2.x), (v1.y - v2.y), (v1.z - v2.z));
         }
-        friend Vec3 operator * (const Vec3 &v1, const Vec3 &v2) {
+        friend Vec3 operator * (const Vec3& v1, const Vec3& v2) {
             return Vec3((v1.x * v2.x), (v1.y * v2.y), (v1.z * v2.z));
         }
-        friend Vec3 operator * (const Vec3 &v, float t) {
+        friend Vec3 operator * (const Vec3& v, float t) {
             return Vec3((v.x * t), (v.y * t), (v.z * t));
         }
-        friend Vec3 operator * (float t, const Vec3 &v) { // Allow left & right operations
+        friend Vec3 operator * (float t, const Vec3& v) { // Allow left & right operations
             return v * t;
         }
         friend Vec3 operator / (Vec3 v, float t) {
             return v * (1 / t);
         }
-        friend Vec3 operator / (float t, const Vec3 &v) { // Allow left & right operations
+        friend Vec3 operator / (float t, const Vec3& v) { // Allow left & right operations
             return v / t;
         }
 
         // Math-equals operators
-        Vec3& operator += (const Vec3 &v) {
+        Vec3& operator += (const Vec3& v) {
             x += v.x;
             y += v.y;
             z += v.z;
             return *this;
         }
-        Vec3& operator -= (const Vec3 &v) {
+        Vec3& operator -= (const Vec3& v) {
             x -= v.x;
             y -= v.y;
             z -= v.z;
@@ -91,11 +91,11 @@ using Colour = Vec3;
 
 
 // Loose functions relating to Vec3
-inline float dot(const Vec3 &v1, const Vec3 &v2) {
+inline float dot_product(const Vec3& v1, const Vec3& v2) {
     return (v1.x * v2.x) + (v1.y * v2.y) + (v1.z * v2.z);
 }
 
-inline Vec3 cross(const Vec3 &v1, const Vec3 &v2) {
+inline Vec3 cross(const Vec3& v1, const Vec3& v2) {
     return Vec3(
         (v1.y * v2.z) - (v1.z * v2.y),
         (v1.z * v2.x) - (v1.x * v2.z),

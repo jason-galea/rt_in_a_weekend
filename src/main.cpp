@@ -14,14 +14,16 @@ int main() {
     // Image
     // const float ASPECT_RATIO = 16 / 9; // == 1. WHAT THE FUCK?????
     const float ASPECT_RATIO = 16.0 / 9.0; // == 1.77778
-    // const int IMG_HEIGHT = 3;
-    // const int IMG_WIDTH = 3;
+
     // const int IMG_HEIGHT = 144; // 402KB PPM
-    const int IMG_HEIGHT = 360; // 2.5MB PPM
+    // const int IMG_HEIGHT = 360; // 2.5MB PPM
     // const int IMG_HEIGHT = 720; // 9.8MB PPM
     // const int IMG_HEIGHT = 1080; // 23MB PPM
-    // const int IMG_HEIGHT = 2160; // 89MB PPM
+    const int IMG_HEIGHT = 2160; // 89MB PPM
     const int IMG_WIDTH = (int)( IMG_HEIGHT * ASPECT_RATIO );
+
+    // const int IMG_HEIGHT = 90;
+    // const int IMG_WIDTH = 160;
     
     // std::cout << "INFO: ASPECT_RATIO:\t" << ASPECT_RATIO << "\n";
     std::cout << "INFO: Resolution:\t" << IMG_WIDTH << " by " << IMG_HEIGHT << "\n";
@@ -67,7 +69,7 @@ int main() {
             // std::cout << "\rINFO: row:" << row << ", col:" << col << ", u:" << u << ", v:" << v << "\n";
 
         }
-        // output_ppm << "\n"; // NOTE: Not required, just looks nicer with tabs in "write_colour"
+        output_ppm << "\n"; // NOTE: Not required, just looks nicer with tabs in "write_colour"
 
     }
     std::cout << "\n";
