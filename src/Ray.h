@@ -24,4 +24,16 @@ class Ray {
 };
 
 
+// Loose functions relating to Ray
+/* Shortcut function to produce a liner gradient based on the SCALED y component */
+inline Colour ray_colour(const Ray& r) {
+    Vec3 unit_dir = unit_vector(r.dir); // Vector describing the direction from ??? to ???
+    Colour white = Colour(1, 1, 1);
+    Colour blue = Colour(0.5, 0.7, 1);
+    float t = 0.5*(unit_dir.y + 1); // Point along vector "unit_dir"
+
+    return white*(1 - t) + blue*t; // TODO: Describe me please!
+}
+
+
 #endif

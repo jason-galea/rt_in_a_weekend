@@ -28,35 +28,25 @@ class Vec3 {
 
         // Math operators
         friend Vec3 operator + (const Vec3 &v1, const Vec3 &v2) {
-            return Vec3(
-                v1.x + v2.x,
-                v1.y + v2.y,
-                v1.z + v2.z
-            );
+            return Vec3((v1.x + v2.x), (v1.y + v2.y), (v1.z + v2.z));
         }
         friend Vec3 operator - (const Vec3 &v1, const Vec3 &v2) {
-            return Vec3(
-                v1.x - v2.x,
-                v1.y - v2.y,
-                v1.z - v2.z
-            );
+            return Vec3((v1.x - v2.x), (v1.y - v2.y), (v1.z - v2.z));
         }
         friend Vec3 operator * (const Vec3 &v1, const Vec3 &v2) {
-            return Vec3(
-                v1.x * v2.x,
-                v1.y * v2.y,
-                v1.z * v2.z
-            );
+            return Vec3((v1.x * v2.x), (v1.y * v2.y), (v1.z * v2.z));
         }
         friend Vec3 operator * (const Vec3 &v, float t) {
-            return Vec3(
-                t * v.x,
-                t * v.y,
-                t * v.z
-            );
+            return Vec3((v.x * t), (v.y * t), (v.z * t));
+        }
+        friend Vec3 operator * (float t, const Vec3 &v) { // Allow left & right operations
+            return v * t;
         }
         friend Vec3 operator / (Vec3 v, float t) {
-            return v * ( 1 / t );
+            return v * (1 / t);
+        }
+        friend Vec3 operator / (float t, const Vec3 &v) { // Allow left & right operations
+            return v / t;
         }
 
         // Math-equals operators
@@ -87,12 +77,39 @@ class Vec3 {
             return x*x + y*y + z*z;
         }
         const float length() {
+            /* Distance in unites from (0,0,0) --> (x,y,z), via Pythagoras*/
             return std::sqrt(length_squared());
         }
 };
 
+
 // Type aliases
 using Point3 = Vec3;
+using Colour = Vec3;
+
+
+// Loose functions relating to Vec3
+inline float dot(const Vec3 &v1, const Vec3 &v2) {
+    return (v1.x * v2.x) + (v1.y * v2.y) + (v1.z * v2.z);
+}
+
+inline Vec3 cross(const Vec3 &v1, const Vec3 &v2) {
+    return Vec3(
+        (v1.y * v2.z) - (v1.z * v2.y),
+        (v1.z * v2.x) - (v1.x * v2.z),
+        (v1.x * v2.y) - (v1.y * v2.x)
+    );
+}
+
+inline Vec3 unit_vector(Vec3 v) {
+    return v / v.length();
+    // == v * (1 / length)
+    // == Vec3(
+    //     v.x * (1 / length),
+    //     v.y * (1 / length),
+    //     v.x * (1 / length)
+    // )
+}
 
 
 #endif

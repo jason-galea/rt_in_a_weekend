@@ -44,7 +44,7 @@ int main() {
                 float(row) / (img_height-1), // Green increases top to bottom (0 --> width)
                 0.25 // Blue is constant
             );
-            pixel_colour.write_colour(output_ppm);
+            write_colour(output_ppm, pixel_colour);
         }
         output_ppm << "\n";
 
