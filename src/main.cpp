@@ -14,10 +14,8 @@ int main() {
     // Image
     // const float ASPECT_RATIO = 16 / 9; // == 1. WHAT THE FUCK?????
     const float ASPECT_RATIO = 16.0 / 9.0; // == 1.77778
-    // // const int IMG_HEIGHT = 3;
-    // // const int IMG_WIDTH = 3;
-    // const int IMG_HEIGHT = 5;
-    // const int IMG_WIDTH = 5;
+    // const int IMG_HEIGHT = 3;
+    // const int IMG_WIDTH = 3;
     // const int IMG_HEIGHT = 144; // 402KB PPM
     const int IMG_HEIGHT = 360; // 2.5MB PPM
     // const int IMG_HEIGHT = 720; // 9.8MB PPM
@@ -59,8 +57,8 @@ int main() {
             //     0.25 // Blue is constant
             // );
 
-            auto u = float(row) / (IMG_WIDTH - 1); // x
-            auto v = float(col) / (IMG_HEIGHT - 1); // y
+            auto u = float(col) / (IMG_WIDTH - 1); // x
+            auto v = float(row) / (IMG_HEIGHT - 1); // y
             Ray r = Ray(ORIGIN_P, lower_left_corner + (u*HORIZONTAL_V) + (v*VERTICAL_V) - ORIGIN_P);
 
             Colour pixel_colour = ray_colour(r);
