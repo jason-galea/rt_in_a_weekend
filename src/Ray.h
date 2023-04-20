@@ -27,10 +27,15 @@ class Ray {
 
 
 // Loose functions relating to Ray
+/*
+    A black box function that detects if a Ray intersects with a sphere at any (or multiple points)
+    Based on sphere 2D circle formula.
+    (Treat it as a black box haha)
+*/
 bool did_ray_hit_sphere(const Point3& center, float radius, const Ray& r) {
-    Vec3 oc = r.origin - center; // ???
+    Vec3 oc = r.origin - center; // Distance from ray origin to center of sphere
     float a = dot_product(r.dir, r.dir); // Get "magnitude" of ray direction vector?
-    float b =  2.0 * dot_product(oc, r.dir); // ???
+    float b =  2.0 * dot_product(oc, r.dir); // "b" signifies the ray direction
     float c = dot_product(oc, oc) - (radius*radius);
     float discriminant = (b*b) - 4*a*c; // Should only even equal 0|1|2, right?
     return (discriminant > 0);

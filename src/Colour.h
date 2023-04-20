@@ -54,12 +54,7 @@ const struct {
 inline void write_colour(std::ostream& out, const Colour& v) {
     out << map_float_to_rgb_int(v.x) << " "
         << map_float_to_rgb_int(v.y) << " "
-        // << map_float_to_rgb_int(v.z) << "\n";
         << map_float_to_rgb_int(v.z) << " ";
-    // // NOTE: Tabs cause ~9% larger PPM files
-    // out << map_float_to_rgb_int(v.x) << "\t"
-    //     << map_float_to_rgb_int(v.y) << "\t"
-    //     << map_float_to_rgb_int(v.z) << "\t\t";
 }
 
 

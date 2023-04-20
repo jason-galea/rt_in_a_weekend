@@ -16,10 +16,10 @@ int main() {
     const float ASPECT_RATIO = 16.0 / 9.0; // == 1.77778
 
     // const int IMG_HEIGHT = 144; // 402KB PPM
-    // const int IMG_HEIGHT = 360; // 2.5MB PPM
+    const int IMG_HEIGHT = 360; // 2.5MB PPM
     // const int IMG_HEIGHT = 720; // 9.8MB PPM
     // const int IMG_HEIGHT = 1080; // 23MB PPM
-    const int IMG_HEIGHT = 2160; // 89MB PPM
+    // const int IMG_HEIGHT = 2160; // 89MB PPM
     const int IMG_WIDTH = (int)( IMG_HEIGHT * ASPECT_RATIO );
 
     // const int IMG_HEIGHT = 90;
